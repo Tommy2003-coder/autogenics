@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEMYTO</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll('.nav-links a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 50,
+                            behavior: "smooth"
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">DEMYTO <span>Your Car, Our Care</span></div>
+        <div class="nav-links">
+            <button class="call-btn">📞 Call Now</button>
+            <a href="#about">About Us</a>
+            <a href= "services">Services</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#faq">FAQs</a>
+        </div>
+    </nav>
+    
+    <div class="content-container">
+        <section id="about" class="about">
+            <h2>About Us</h2>
+            <p>DEMYTO is dedicated to providing top-quality car servicing, repairs, and denting painting solutions. With a focus on customer satisfaction and efficiency, we ensure that your vehicle gets the best care. Our expert technicians use advanced techniques to deliver seamless services that enhance the longevity and performance of your car.</p>
+        </section>
+
+        <div class="inquiry-container">
+            <div class="inquiry-image">
+                <img src="https://content.jdmagicbox.com/comp/def_content_category/automotive-coating-services/360-f-381130814-40k4frkki98tgyahgjol32j7k9in2oew-automotive-coating-services-2-wuf5o.jpg" alt="Car Service">
+            </div>
+            <div class="inquiry-form">
+                <h3>Pune's Best Car Servicing, Repair & Denting Painting Destination</h3>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <button class="enquire-btn">Enquire Now</button>
+                <div class="review">
+                    ⭐⭐⭐⭐☆ <span>4.3/5 Google Review</span>
+                </div>
+                <p>25000+ Happy Customers</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="contact-section">
+        <h2>Contact Us</h2>
+        <p>Email: support@demyto.com</p>
+        <p>Phone: +91 98765 43210</p>
+        <p>Address: Pune, Maharashtra, India</p>
+    </footer>
+</body>
+</html>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExajUydTd0NGF3Y3pxc3FqczF5bmJ5M3k2eTMyNjU2aXgya3htbjlmMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/W3HUoPytgR8FW0stRl/giphy.gif') no-repeat center center fixed;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        scroll-behavior: smooth;
+    }
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: white;
+        padding: 15px 30px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .nav-links a, .call-btn {
+        margin: 0 10px;
+        text-decoration: none;
+        color: gray;
+        transition: color 0.3s ease-in-out;
+    }
+    .nav-links a:hover {
+        color: blue;
+    }
+    .call-btn {
+        background: blue;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        cursor: pointer;
+    }
+    .content-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 50px;
+        padding: 40px;
+        max-width: 90%;
+        margin: 40px auto;
+    }
+    .about, .inquiry-container {
+        background: white;
+        padding: 40px;
+        width: 50%;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        transform: scale(1);
+        transition: transform 0.3s ease-in-out;
+    }
+    .about:hover, .inquiry-container:hover {
+        transform: scale(1.05);
+    }
+    .inquiry-container {
+        display: flex;
+        align-items: center;
+    }
+    .inquiry-image img {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 10px;
+    }
+    .inquiry-form {
+        flex: 1;
+        padding: 20px;
+    }
+    .inquiry-form input {
+        display: block;
+        width: 100%;
+        margin: 15px 0;
+        padding: 12px;
+    }
+    .enquire-btn {
+        background: blue;
+        color: white;
+        padding: 12px;
+        width: 100%;
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+    }
+    .enquire-btn:hover {
+        background: darkblue;
+    }
+    .review {
+        margin-top: 15px;
+        color: gray;
+    }
+    .contact-section {
+        background: white;
+        padding: 20px;
+        margin-top: 40px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+</style>

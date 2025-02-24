@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autogenics</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll('.nav-links a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    
+                    if (targetId === "services.html") {
+                        // Navigate to services.html
+                        window.location.href = "services.html";
+                    } else if (targetId.startsWith("#")) {
+                        // Smooth scrolling for internal sections
+                        e.preventDefault();
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 50,
+                                behavior: "smooth"
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="logo copy.png" alt="Autogenics Logo" class="logo-img">
+            <div class="logo-text">AUTOGENICS <span>Your Car, Our Care</span></div>
+        </div>
+        <div class="nav-links">
+            <button class="call-btn">📞 Call Now</button>
+            <a href="#about">About Us</a>
+            <a href="services.html" id="services-link">Services</a> 
+            <a href="testimonials.html">Testimonials</a>
+            <a href="profile.html">Profile</a>
+            <a href="#faq">FAQs</a>
+        </div>
+    </nav>
+    
+   <!-- <nav class="navbar">
+        <div class="logo">AUTOGENICS <span>Your Car, Our Care</span></div>
+        <div class="nav-links">
+            <button class="call-btn">📞 Call Now</button>
+            <a href="#about">About Us</a>
+            <a href="services.html" id="services-link">Services</a> 
+            <a href="testimonials.html">Testimonials</a>
+            <a href="profile.html">Profile</a>
+            <a href="#faq">FAQs</a>
+        </div>
+    </nav> -->
+    
+    <div class="content-container">
+        <section id="about" class="about">
+            <h2>About Us</h2>
+            <p>Autogenics is dedicated to providing top-quality car servicing, repairs, and denting painting solutions. With a focus on customer satisfaction and efficiency, we ensure that your vehicle gets the best care. Our expert technicians use advanced techniques to deliver seamless services that enhance the longevity and performance of your car.</p>
+        </section>
+
+        <div class="inquiry-container">
+            <div class="inquiry-image">
+                <img src="https://content.jdmagicbox.com/comp/def_content_category/automotive-coating-services/360-f-381130814-40k4frkki98tgyahgjol32j7k9in2oew-automotive-coating-services-2-wuf5o.jpg" alt="Car Service">
+            </div>
+            <div class="inquiry-form">
+                <h3>Pune's Best Car Servicing, Repair & Denting Painting Destination</h3>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <button class="enquire-btn">Enquire Now</button>
+                <div class="review">
+                    ⭐⭐⭐⭐☆ <span>4.3/5 Google Review</span>
+                </div>
+                <p>25000+ Happy Customers</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="contact-section">
+        <h2>Contact Us</h2>
+        <p>Email: support@demyto.com</p>
+        <p>Phone: +91 98765 43210</p>
+        <p>Address: Pune, Maharashtra, India</p>
+    </footer>
+</body>
+</html>

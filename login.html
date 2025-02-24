@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Autogenics</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExajUydTd0NGF3Y3pxc3FqczF5bmJ5M3k2eTMyNjU2aXgya3htbjlmMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/W3HUoPytgR8FW0stRl/giphy.gif') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: white;
+        }
+        .login-container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            margin: 100px auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background: #f5a623;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .login-container button:hover {
+            background: #e08e1c;
+        }
+        .login-links {
+            margin-top: 10px;
+        }
+        .login-links a {
+            color: #f5a623;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        function login(event) {
+            event.preventDefault(); // Prevent form from submitting the default way
+
+            // Simulated login process (Replace with actual authentication logic)
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            if (email && password) {
+                alert("Login successful! Redirecting to homepage...");
+                window.location.href = "index.html"; // Redirect to homepage
+            } else {
+                alert("Please enter valid credentials.");
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login to Your Account</h2>
+        <form onsubmit="login(event)">
+            <input type="email" id="email" placeholder="Email Address" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div class="login-links">
+            <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+        </div>
+    </div>
+
+</body>
+</html>

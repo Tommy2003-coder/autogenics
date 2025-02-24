@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Autogenics</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll(".service-card").forEach(card => {
+                card.addEventListener("mouseover", function() {
+                    this.classList.add("hover-effect");
+                });
+                card.addEventListener("mouseleave", function() {
+                    this.classList.remove("hover-effect");
+                });
+            });
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExajUydTd0NGF3Y3pxc3FqczF5bmJ5M3k2eTMyNjU2aXgya3htbjlmMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/W3HUoPytgR8FW0stRl/giphy.gif') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: white;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            text-align: center;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #f5a623;
+        }
+        .services-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px 20px;
+        }
+        .service-card {
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .service-card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        .service-card img {
+            width: 100%;
+            border-radius: 10px;
+            height: 180px;
+            object-fit: cover;
+        }
+        .contact-section {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            margin-top: 40px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    
+    <h1>Our Services</h1>
+    <div class="services-container">
+        <div class="service-card">
+            <img src="https://www.indusmotor.com/public/uploads/pages/179020210129170225.jpg" alt="Car Service">
+            <h3>Car Servicing</h3>
+            <p>Professional car servicing to keep your vehicle in top condition.</p>
+        </div>
+        <div class="service-card">
+            <img src="https://miro.medium.com/v2/resize:fit:1200/1*JktzC9GrA_l4yz0cCy8a5Q.jpeg" alt="Car Repair">
+            <h3>Car Repair</h3>
+            <p>Expert repairs for all types of car damages.</p>
+        </div>
+        <div class="service-card">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2021/8/GB/UN/IC/135089845/car-denting-painting-repairing-service.jpg" alt="Car Denting">
+            <h3>Denting & Painting</h3>
+            <p>Get rid of scratches and dents with our top-notch denting & painting services.</p>
+        </div>
+        <div class="service-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs_l_eWkLMBazksMaxhtVuXVl3-BaVQL168Q&s" alt="Wheel Alignment">
+            <h3>Wheel Alignment</h3>
+            <p>Improve your car’s stability and increase tire life with expert wheel alignment.</p>
+        </div>
+    </div>
+
+    <footer class="contact-section">
+        <h2>Contact Us</h2>
+        <p>Email: support@autogenics.com</p>
+        <p>Phone: +91 98765 43210</p>
+        <p>Address: Pune, Maharashtra, India</p>
+    </footer>
+</body>
+</html>

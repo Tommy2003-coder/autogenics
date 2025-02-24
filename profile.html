@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Autogenics</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExajUydTd0NGF3Y3pxc3FqczF5bmJ5M3k2eTMyNjU2aXgya3htbjlmMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/W3HUoPytgR8FW0stRl/giphy.gif') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: white;
+        }
+        .profile-container {
+            max-width: 400px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            color: black;
+            text-align: center;
+        }
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #f5a623;
+            margin-bottom: 15px;
+        }
+        .profile-container input, .profile-container button {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        .profile-container button {
+            background: #f5a623;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .profile-container button:hover {
+            background: #e08e1c;
+        }
+        #signup-section {
+            display: none;
+        }
+    </style>
+    <script>
+        function checkProfile() {
+            const userExists = localStorage.getItem("userProfile"); 
+
+            if (!userExists) {
+                document.getElementById("profile-section").style.display = "none";
+                document.getElementById("signup-section").style.display = "block";
+            } else {
+                document.getElementById("profile-section").style.display = "block";
+                document.getElementById("signup-section").style.display = "none";
+
+                let profileData = JSON.parse(userExists);
+                document.getElementById("profile-name").innerText = profileData.name;
+                document.getElementById("profile-email").innerText = profileData.email;
+                document.getElementById("profile-image").src = profileData.photo || "default-profile.png";
+            }
+        }
+
+        function updateProfile(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const photo = document.getElementById("photo").files[0];
+
+            if (name && email) {
+                let reader = new FileReader();
+                reader.onloadend = function () {
+                    let userProfile = {
+                        name: name,
+                        email: email,
+                        password: password,
+                        photo: reader.result
+                    };
+                    localStorage.setItem("userProfile", JSON.stringify(userProfile));
+                    alert("Profile Updated Successfully!");
+                    window.location.reload();
+                };
+                if (photo) {
+                    reader.readAsDataURL(photo);
+                } else {
+                    reader.onloadend();
+                }
+            } else {
+                alert("Please fill in all fields!");
+            }
+        }
+
+        function signup(event) {
+            event.preventDefault();
+            const name = document.getElementById("signup-name").value;
+            const email = document.getElementById("signup-email").value;
+            const password = document.getElementById("signup-password").value;
+            const photo = document.getElementById("signup-photo").files[0];
+
+            if (name && email && password) {
+                let reader = new FileReader();
+                reader.onloadend = function () {
+                    let userProfile = {
+                        name: name,
+                        email: email,
+                        password: password,
+                        photo: reader.result
+                    };
+                    localStorage.setItem("userProfile", JSON.stringify(userProfile));
+                    alert("Signup Successful! Redirecting to Profile...");
+                    window.location.reload();
+                };
+                if (photo) {
+                    reader.readAsDataURL(photo);
+                } else {
+                    reader.onloadend();
+                }
+            } else {
+                alert("Please fill in all fields!");
+            }
+        }
+
+        window.onload = checkProfile;
+    </script>
+</head>
+<body>
+
+    <h1>Your Profile</h1>
+
+    <!-- Profile Section -->
+    <div id="profile-section" class="profile-container">
+        <img id="profile-image" class="profile-photo" src="default-profile.png" alt="Profile Picture">
+        <h3 id="profile-name"></h3>
+        <p id="profile-email"></p>
+
+        <h3>Update Your Details</h3>
+        <form onsubmit="updateProfile(event)">
+            <input type="text" id="name" placeholder="Full Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="New Password">
+            <input type="file" id="photo" accept="image/*">
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+
+    <!-- Signup Section (Only Shows if Profile is Not Created) -->
+    <div id="signup-section" class="profile-container">
+        <h3>Create Your Profile</h3>
+        <form onsubmit="signup(event)">
+            <input type="text" id="signup-name" placeholder="Full Name" required>
+            <input type="email" id="signup-email" placeholder="Email" required>
+            <input type="password" id="signup-password" placeholder="Password" required>
+            <input type="file" id="signup-photo" accept="image/*">
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+</body>
+</html>
